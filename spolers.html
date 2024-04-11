@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>SPOLLERS</title>
+</head>
+
+<body class="post-template-default single single-post postid-920 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-920"> 				<h1 class="article__title title">Модуль “Спойлери”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Спойлер – це заголовок, при натисканні на який під ним розгортається певний контент.</p>
+	
+	
+	
+	<h2 class="wp-block-heading" id="основные-возможности">Основні можливості</h2>
+	
+	
+	
+	<ol>
+	<li>Використання безлічі блоків зі спойлерами</li>
+	
+	
+	
+	<li>Вимкнення/увімкнення функціоналу на певній ширині екрану</li>
+	
+	
+	
+	<li>Функція “акордеон”, коли в блоці може бути відкритий лише один спойлер</li>
+	
+	
+	
+	<li>Можливість закриття по кліку за межами спойлера</li>
+	
+	
+	
+	<li>Можливість анімованого відкриття</li>
+	
+	
+	
+	<li>Семантика та доступність</li>
+	</ol>
+	
+	
+	
+	<h2 class="wp-block-heading" id="подключение-функционала">Підключення функціоналу</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> У потрібному місці викликати <a rel="noreferrer noopener" href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank">сніпет</a><strong> spollers</strong> (класи можна замінити на потрібні). Або вручну створити структуру із відповідними дата-атрибутами. Зауважте, що додавання атрибуту <strong>data-open</strong> для елемента <strong>details</strong> зробить спойлер активним (відкритим).</p>
+	
+	
+	
+	<p><em>Приклад блоку з двома спойлерами:</em></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">details</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">summary</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>
+				Заголовок спойлера №1
+			<span class="tag">&lt;/<span class="title">summary</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера №1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">details</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">details</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">summary</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>
+				Заголовок спойлера №2
+			<span class="tag">&lt;/<span class="title">summary</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера №2<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">details</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>flsFunctions.spollers();</strong><br><strong>[SCSS]</strong> (не обов’язково) Якщо ви хочете одразу подивитися на роботу спойлерів та залишили класи запропоновані сніпетом, ви можете розкоментувати рядок <strong>@import «base/spollers»;</strong> у файлі <strong>src/scss/base.scss</strong> це підключить базові стилі, їх можна відредагувати під свої потреби.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Прибрати <strong>стандартний маркер</strong> елементу summary <br>можна за допомогою css-параметру <strong>list-style: none;</strong></p>
+	</blockquote>
+	
+	
+	
+	<p>У момент ініціалізації (увімкнення) функціонала спойлера контент буде прихований, а до елемента з атрибутом <strong>data-spollers</strong> буде додано клас <strong>_spoller-init</strong></p>
+	
+	
+	
+	<h2 class="wp-block-heading" id="использование-функционала">Використання функціоналу</h2>
+	
+	
+	
+	<h4 class="wp-block-heading" id="отключение-включение-функционала-на-определенной-ширине-экрана">Вимкнення/увімкнення функціоналу на певній ширині екрану</h4>
+	
+	
+	
+	<p>Для того, щоб вимкнути/включити функціонал спойлера на певній ширині екрана, необхідно для атрибуту <strong>data-spollers</strong> через кому вказати потрібну ширину екрану а також тип:</p>
+	
+	
+	
+	<ul>
+	<li><strong>max</strong> (за замовчуванням) — функціонал увімкнеться на ширині меншій за вказану</li>
+	
+	
+	
+	<li><strong>min</strong> — функціонал увімкнеться на ширині більшій ніж зазначена</li>
+	</ul>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span>=<span class="value">"768,min"</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+	...
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h4 class="wp-block-heading" id="включение-режима-аккордеон">Увімкнення режиму “акордеон”</h4>
+	
+	
+	
+	<p>Для того, щоб увімкнути режим акордеон, необхідно для елемента з атрибутом <strong>data-spollers</strong> додати атрибут <strong>data-one-spoller</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">data-one-spoller</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+	...
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Тепер, при відкритті спойлера, інший відкритий спойлер у блоці закриватиметься</p>
+	
+	
+	
+	<h4 class="wp-block-heading" id="управление-скоростью-анимации">Управління швидкістю анімації</h4>
+	
+	
+	
+	<p>Для того, щоб керувати часом анімації відкриття/закриття спойлера, необхідно для елемента з атрибутом <strong>data-spollers</strong> додати атрибут <strong>data-spollers-speed</strong>, а в якості значення вказати час анімації в мілісекундах (за замовчуванням 500).</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">data-spollers-speed</span>=<span class="value">"1000"</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+	...
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h4 class="wp-block-heading" id="закрытие-при-клике-вне-спойлера">Закриття при кліку поза спойлером</h4>
+	
+	
+	
+	<p>Якщо необхідно закривати спойлер(и) при кліку поза блоком (“на порожньому місці”), слід додати потрібному заголовку(кам) атрибут <strong>data-spoller-close</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">details</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">summary</span> <span class="attribute">data-spoller-close</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>Заголовок спойлера<span class="tag">&lt;/<span class="title">summary</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">details</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h4 class="wp-block-heading">Прокрутка до заголовку</h4>
+	
+	
+	
+	<p>Якщо необхідно прокрутити скрол до заголовку відкритого спойлеру, слід додати потрібному елементу (тег details) атрибут <strong>data-spoller-scroll</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">details</span> <span class="attribute">data-spoller-scroll</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">summary</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>Заголовок спойлера<span class="tag">&lt;/<span class="title">summary</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">details</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Є можливість більш тонких налаштувань. Наприклад, якщо треба щоб скрол враховув шапку сайту (коли вона фіксована), то варто додати атрибут <strong>data-spoller-scroll-noheader</strong>. </p>
+	
+	
+	
+	<p>Також, в самому атрибуті <strong>data-spoller-scroll</strong> можна дописати числове значення яке буде враховане при скролі:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-spollers</span> <span class="attribute">class</span>=<span class="value">"spollers"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">details</span> <span class="attribute">data-spoller-scroll</span>=<span class="value">"20"</span> <span class="attribute">data-spoller-scroll-noheader</span> <span class="attribute">class</span>=<span class="value">"spollers__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">summary</span> <span class="attribute">class</span>=<span class="value">"spollers__title"</span>&gt;</span>Заголовок спойлера<span class="tag">&lt;/<span class="title">summary</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"spollers__body"</span>&gt;</span>Контент спойлера<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">details</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading" id="расположение-и-дополнительные-данные">Розташування та додаткові дані</h2>
+	
+	
+	
+	<p>Функціонал знаходиться у <strong>js/files/functions.js</strong>. Назва функціі<strong> spollers()</strong></p>
+	
+	
+	
+	<h2 class="wp-block-heading" id="дополнительные-материалы">Додаткові матеріали</h2>
+	
+	
+	
+	<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+	<iframe title="Спойлер и аккордеон на HTML CSS и JavaScript, с возможностью включения на определенной ширине экрана" width="500" height="281" src="https://www.youtube.com/embed/0fg9bZcL1RM?list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+	</div></figure>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/modul-taby.html" rel="prev">&lt;- Попередній пост: Модуль “Таби”</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html" rel="next">Наступний пост: Модуль “Ліниве підвантаження” (Lazy Loading) -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

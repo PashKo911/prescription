@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>POPUP</title>
+</head>
+
+<body class="post-template-default single single-post postid-532 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-532"> 				<h1 class="article__title title">Модуль “Popup”. Випливаючі (модальні) вікна</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Цей функціонал додає можливість використовувати випливаючі вікна. Робота модуля полягає в наступному: користувач натискає на вказаний елемент (за замовчюванням це атрибут із вказаним селектором <strong>data-popup=’selector’</strong>). При цьому до тега <strong>body </strong>додається клас <strong>popup-show</strong>. Також блокується прокручування сторінки (можна вимкнути), фокусування елементів “перелітає” на popup, із запам’ятовуванням попереднього сфокусованого елемента на сторінці. Закриття popup відбувається при натисканні кнопки закриття (за замовчуванням елемент з атрибутом <strong>data-close</strong>), по кліку на “порожньому місці” (не на popup), за натисканням кнопки <strong>ESC</strong>.</p>
+	
+	
+	
+	<h2 class="wp-block-heading" id="подключение-функционала">Підключення функціоналу</h2>
+	
+	
+	
+	<ol>
+	<li><strong>[HTML]</strong> Підключити файл <strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">_popup.htm</mark></strong>, після обгортки <strong>wrapper</strong>, у HTML-файлі сторінки <strong>@@include(‘html/_popup.htm’,{})</strong>, можна використати сніпет <strong>pop</strong></li>
+	
+	
+	
+	<li><strong>[SCSS]</strong> Підключить файл <strong>scss/base/<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">popup.scss</mark> </strong>у файлі <strong>scss/<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">base.scss</mark></strong> – розкоментувати рядок <strong>@import ‘base/popup’;</strong></li>
+	
+	
+	
+	<li><strong>[JS]</strong> Підключить файл <strong>js/libs/<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">popup.js</mark></strong> у файлі <strong>js/<mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-black-color">app.js</mark></strong> –  розкоментувати рядок <strong>import ‘./libs/popup.js’</strong></li>
+	</ol>
+	
+	
+	
+	<h2 class="wp-block-heading" id="использование-функционала">Використання функціоналу</h2>
+	
+	
+	
+	<p>Для того, щоб викликати попап, необхідно на сторінці ввести об’єкт з дата-атрибутом, в якому вказано селектор (клас або id) випливаючого вікна, на яке посилаємось:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-popup</span>=<span class="value">"#popup"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Я відкриваю попап<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Далі відкрити файл <strong>html/_popup.htm</strong>, розкоментувати HTML-код підготовки попапа, вказати селектор (id або клас), за яким викликається попап, змінити код під свої потреби.</p>
+	
+	
+	
+	<p><em>У прикладі попап викликається за id popup:</em></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"popup"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span> <span class="attribute">class</span>=<span class="value">"popup"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__wrapper"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__content"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-close</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"popup__close"</span>&gt;</span>Закрити<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
+	
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h3 class="wp-block-heading" id="открытие-youtube-видео-в-попапе">Відкриття YouTube відео у попапі</h3>
+	
+	
+	
+	<p>Щоб відкрити відеоролик у попапі, слід додати до кнопки, яка викликає попап, атрибут <strong>data-popup-youtube</strong>, а як значення вказати код ролика. Також слід вказати атрибут <strong>data-popup-youtube-place</strong> для об’єкта, в якому хочемо вивести ролик (якщо атрибут data-popup-youtube-place не буде вказано, ролик автоматично з’явиться в об’єкті з класом <strong>popup__text</strong>):</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">data-popup</span>=<span class="value">"#video"</span> <span class="attribute">data-popup-youtube</span>=<span class="value">"6S5Zw2WuyFE"</span>&gt;</span>Відео<span class="tag">&lt;/<span class="title">button</span>&gt;</span></code></pre>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"> <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"video"</span> <span class="attribute">aria-hidden</span>=<span class="value">"true"</span> <span class="attribute">class</span>=<span class="value">"popup"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__wrapper"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"popup__content"</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">data-close</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"popup__close"</span>&gt;</span>Закрити<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-youtube-place</span> <span class="attribute">class</span>=<span class="value">"popup__text"</span>&gt;</span>
+	
+				<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+			<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Стилі попапа можна писати та змінювати у файлі <strong>scss/base/popup.scss</strong></p>
+	
+	
+	
+	<h3 class="wp-block-heading" id="открытие-попапа-по-хешу">Відкриття попапа по хешу</h3>
+	
+	
+	
+	<p>Щоб відкрити попап при відкритті сторінки, додаємо до адреси хеш з ім’ям селектора попапа</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="ruby"><span class="symbol">https:</span>/<span class="regexp">/template.fls.guru/index</span>.html<span class="comment">#popup</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading" id="методы-и-события">Методи та події</h2>
+	
+	
+	
+	<h4 class="wp-block-heading" id="методы">Методи</h4>
+	
+	
+	
+	<p>Працювати з попапом з будь-якого місця можна імпортувати змінну  <strong>flsModules</strong>:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="python"><span class="keyword">import</span> { flsModules } <span class="keyword">from</span> <span class="string">"./modules.js"</span>;</code></pre>
+	
+	
+	
+	<p>Далі звернутися до класу popup та працювати з методом, наприклад <strong>open()</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="http"><span class="attribute">flsModules.popup.open('#popup')</span></code></pre>
+	
+	
+	
+	<p>де <strong>#popup</strong> селектор попапа</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p><strong>Увага!</strong> Після створення білду проєкту (режим build) константа flsModules змінюється на <strong>modules_flsModules</strong>. Тобто запит буде <strong>modules_flsModules</strong>.popup.open(‘#popup’);</p>
+	</blockquote>
+	
+	
+	
+	<h4 class="wp-block-heading" id="события">Події</h4>
+	
+	
+	
+	<p>У класі попапів існує ряд подій:</p>
+	
+	
+	
+	<ol>
+	<li><strong>beforePopupOpen</strong> – спрацює перед відкриттям попапа</li>
+	
+	
+	
+	<li><strong>afterPopupOpen</strong> – спрацює після відкриття попапа</li>
+	
+	
+	
+	<li><strong>beforePopupClose</strong> – спрацює перед відкриттям попапа</li>
+	
+	
+	
+	<li><strong>afterPopupClose</strong> – спрацює після відкриття попапа</li>
+	</ol>
+	
+	
+	
+	<p>Щоб працювати з подією вішаємо прослуховування на document</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="javascript">document.addEventListener(<span class="string">"afterPopupOpen"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+		<span class="comment">// Попап</span>
+		<span class="keyword">const</span> currentPopup = e.detail.popup;
+	});</code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/menu-burger.html" rel="prev">&lt;- Попередній пост: Модуль меню «бургер»</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/dinamicheskij-adaptiv.html" rel="next">Наступний пост: Модуль “Динамічний адаптив” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>FONTS</title>
+</head>
+
+<body class="post-template-default single single-post postid-359 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-359"> 				<h1 class="article__title title">Робота зі шрифтами. Локальні та іконочні шрифти. Підключення з Google Fonts</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>У стартовому шаблоні “Чертоги Фрілансера” v3.0.0 (далі – ЧФ) весь процес підключення локальних та іконочних шрифтів максимально автоматизований. Вихідні файли шрифтів конвертуються з сучасних форматів .WOFF і .WOFF2, а також виконується запис підключення шрифтів у файл стилів, включаючи значення font-weight на основі імені файлу.</p>
+	
+	
+	
+	<h3 class="wp-block-heading" id="как-чф-обрабатывает-шрифты">Як ЧФ обробляє шрифти?</h3>
+	
+	
+	
+	<p>При запуску шаблону в будь-якому режимі, ЧФ перевірить, чи є файли шрифтів у форматах .TTF та/або .OTF у папці src/fonts.</p>
+	
+	
+	
+	<p>Далі відбувається три етапи конвертації:</p>
+	
+	
+	
+	<ol>
+	<li>Файли .OTF (якщо вони є) конвертуються у .TTF і зберігаються у папці з вихідними файлами src/fonts.</li>
+	
+	
+	
+	<li>Файли .TTF конвертуються у .WOFF і записуються у папку з результатом (dist/fonts)</li>
+	
+	
+	
+	<li>Файли .TTF конвертуються у .WOFF2 і записуються у папку з результатом (dist/fonts)</li>
+	</ol>
+	
+	
+	
+	<p>Після конвертації ЧФ перевірить наявність файлу стилів scss/fonts/fonts.scss і, <strong>якщо його немає</strong>, запише в нього конструкції @font-face для всіх файлів, включаючи значення font-weight, засноване на імені файлу.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Якщо файл scss/fonts/fonts.scss існує, дані не перезапишуться. Це зроблено для того, якщо нам доведеться внести зміни до файлу scss/fonts/fonts.scss після роботи ЧФ, ці зміни не затерлися.</p>
+	</blockquote>
+	
+	
+	
+	<p><strong>У яких випадках нам потрібно внести зміни до файлу scss/fonts/fonts.scss вручну?</strong> Справа в тому, що значення font-weight ґрунтується на імені файлу шрифту, тобто якщо файли називається Roboto-bold, то значення font-weight буде 700. Але якщо файл буде названий без відділення, наприклад RobotoBold, то адекватне визначення не вдасться і буде записано значення за замовчанням (400). І ось у цих випадках нам необхідно відредагувати файл, вказавши адекватні значення.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Якщо ми хочемо перезаписати дані у файлі <strong>scss/fonts/fonts.scss</strong>, нам слід його видалити та перезапустити систему, або запустити команду <strong>npm run fonts</strong> (система сама видалить файл та створить новий)</p>
+	</blockquote>
+	
+	
+	
+	<h3 class="wp-block-heading" id="как-подключить-локальные-файлы-шрифтов">Як підключити локальні файли шрифтів:</h3>
+	
+	
+	
+	<ol>
+	<li>Завантажити або отримати від дизайнера/замовника файли шрифтів у форматі .TTF та/або .OTF і покласти їх у папку <strong>src/fonts (якщо папки немає – створити)</strong></li>
+	
+	
+	
+	<li>Розкоментувати підключення файлу <strong>fonts.scss (рядок fonts/fonts)</strong> у файлі <strong>scss/style.scss</strong></li>
+	
+	
+	
+	<li>Вказати сімейство шрифту за замовчуванням у змінній <strong>$fontFamily</strong> у файлі <strong>scss/style.scss</strong></li>
+	
+	
+	
+	<li>Запустити ЧФ у будь-якому режимі</li>
+	</ol>
+	
+	
+	
+	<p>При необхідності, ви можете відредагувати створений та заповнений файл <strong>scss/fonts/fonts.scss</strong><br>При необхідності перестворити дані у файлі стилів <strong>scss/fonts/fonts.scss</strong> повністю, слід його видалити та перезапустити систему, або запустити команду <strong>npm run fonts</strong> (система сама видаляє файл та створить новий)</p>
+	
+	
+	
+	<h3 class="wp-block-heading" id="как-подключить-локальные-файлы-иконочных-шрифтов">Як підключити локальні файли іконочних шрифтів:</h3>
+	
+	
+	
+	<ol>
+	<li><a rel="noreferrer noopener" href="https://www.youtube.com/watch?v=QYwI3LRCnRE&amp;list=PLM6XATa8CAG6IJvQBkrTTNZmpIcyS2Avk&amp;index=23" target="_blank">Тим чи іншим способом</a> створити файл іконочного шрифту у форматі .TTF та/або .OTF і покласти його у папку <strong>src/fonts</strong> (розробляється робота над автоматизацією цього процесу)</li>
+	
+	
+	
+	<li>Відредагувати файл <strong>scss/fonts/icons.scss</strong> внісши класи для іконок, а також переконатися, що ім’я шрифту (font-family) для SCSS-шаблону <strong>%ic {}</strong> збігається з тим, що вказано у файлі <strong>scss/fonts/fonts.scss</strong></li>
+	
+	
+	
+	<li>Розкоментувати підключення файлу<strong> icons.scss (рядок fonts/icons)</strong> у файлі <strong>scss/style.scss</strong></li>
+	
+	
+	
+	<li>Запустити ЧФ у будь-якому режимі</li>
+	</ol>
+	
+	
+	
+	<h3 class="wp-block-heading" id="как-подключить-шрифты-из-google-fonts">Як підключити шрифти з Google Fonts:</h3>
+	
+	
+	
+	<p>Найпростіший спосіб – це скористатися плагіном для VS Code <a rel="noreferrer noopener" href="https://marketplace.visualstudio.com/items?itemName=lior-chamla.google-fonts" target="_blank">Google Fonts</a></p>
+	
+	
+	
+	<ol>
+	<li>Натискаємо F1 і шукаємо плагін Google Fonts</li>
+	
+	
+	
+	<li>Якщо хочемо підключити шрифт окремим тегом link у HTML файл, вибираємо <strong>Google Fonts: insert &lt;link&gt;</strong></li>
+	
+	
+	
+	<li>Якщо хочемо підключити шрифт до файлу стилів (зазвичай це <strong>scss/style.scss</strong>), вибираємо <strong>Google Fonts: insert CSS @import</strong></li>
+	
+	
+	
+	<li>Зі списку вибираємо потрібний шрифт, можна скористатися пошуком</li>
+	
+	
+	
+	<li>Після вставки рядка підключення слід відредагувати рядок, залишивши тільки потрібні накреслення шрифту</li>
+	
+	
+	
+	<li>Також слід додати до рядка підключення  <strong>&amp;display=swap</strong></li>
+	</ol>
+	
+	
+	
+	<p><em>Приклад підключення шрифту Montserrat:</em></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="ruby"><span class="variable">@import</span> url(<span class="symbol">https:</span>/<span class="regexp">/fonts.googleapis.com/css</span><span class="number">?f</span>amily=<span class="constant">Montserrat</span><span class="symbol">:</span><span class="number">400</span>,<span class="number">500</span>,<span class="number">800</span>&amp;display=swap);</code></pre>
+	
+	
+	
+	<p>Шрифти, підключені з Google Fonts, не повинні потрапляти в папку з результатом (dist), вони підвантажуються з сервера Google. </p>
+	
+	
+	
+	<p>Також варто зазначити, що отримати рядок для підключення шрифту ви можете і без плагіна на сайті <a rel="noreferrer noopener" href="https://fonts.google.com/" target="_blank">Google Fonts</a>.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/arhitektura-shablona-fajly-i-papki.html" rel="prev">&lt;- Попередній пост: Архітектура шаблону. Файли та папки</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/rabota-s-svg-sprajtami.html" rel="next">Наступний пост: Робота з SVG-спрайтами -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

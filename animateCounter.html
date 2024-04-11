@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>ANIMATE COUNTER</title>
+</head>
+
+<body class="post-template-default single single-post postid-1874 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-1874"> 				<h1 class="article__title title">Модуль анімації цифрового лічильника</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<h2 class="wp-block-heading">Підключення модуля</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> Пишемо HTML-структуру лічильника(ів), та додаємо атрибут <strong>data-digits-counter</strong> до кожного з них. В середені тегу-лічильника має бути тільки число:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"counters"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>1500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>800<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментовуємо рядок <strong>flsScroll.digitsCounter();</strong></p>
+	
+	
+	
+	<p><strong>(!)</strong> Модуль потребує підключення <a rel="noreferrer noopener" href="https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html" target="_blank">модуля спостерігача</a>. Тож треба підключити його та додати атрибут data-watch <strong>батьківському</strong> елементу з лічильниками:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-watch</span> <span class="attribute">class</span>=<span class="value">"counters"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>1500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>800<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Додаткові можливості</h2>
+	
+	
+	
+	<h3 class="wp-block-heading">Зміна швидкості</h3>
+	
+	
+	
+	<p>Для зміни швидкості анімації необхідно додати атрибут <strong>data-digits-counter-speed</strong> до елементу лічильника та вказати швидкість у мілісекундах (1000 за замовченням)</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-watch</span> <span class="attribute">class</span>=<span class="value">"counters"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">data-digits-counter-speed</span>=<span class="value">"4500"</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>1500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>800<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h3 class="wp-block-heading">Форматування</h3>
+	
+	
+	
+	<p>Існує можливість форматування виводу цифр відділяючи тисячі сотрі тисяч і т.д. Для цього необхідно додати атрибут <strong>data-digits-counter-format</strong> до елементу лічильника. Для налаштування розмежувача можно додати символ у якості значення атрибуту (за замовченням пробіл)</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-watch</span> <span class="attribute">class</span>=<span class="value">"counters"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>1500<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>50000<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-digits-counter</span> <span class="attribute">data-digits-counter-format</span>=<span class="value">"."</span> <span class="attribute">class</span>=<span class="value">"counters__item"</span>&gt;</span>8000<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/modul-poekrannoj-prokrutki-stranicy-fullpage.html" rel="prev">&lt;- Попередній пост: Модуль екранного прокручування сторінки (FullPage)</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/paralaks-pri-skroli.html" rel="next">Наступний пост: Паралакс-ефект при скроллі сторінки -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

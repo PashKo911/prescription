@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>SCROLL TO BLOCK</title>
+</head>
+
+<body class="post-template-default single single-post postid-615 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-615"> 				<h1 class="article__title title">Модуль “Прокручування до потрібного блоку”. Плавна навігація по сторінці.</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>У цьому модулі реалізований плавний скролл після натискання на посилання (кнопці) до потрібного блоку на сторінці. Якщо у адресі сторінки буде передано хеш і блок з таким селектором буде знайдено на сторінці, прокручування до блоку відбудеться автоматично. Також модуль дозволяє побудувати навігацію по сторінці з додаванням класу поточному пункту навігації (пункту меню) при скроллі до певного блоку.</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення функціоналу</h2>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>flsScroll.pageNavigation();</strong></p>
+	
+	
+	
+	<h2 class="wp-block-heading">Використання функціоналу</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> До елементів навігації (пунктів меню), або до довільного об’єкта, додаємо HTML-атрибут <strong>data-goto</strong>, а в якості значення вказуємо CSS селектор блоку до якого потрібно прокрутити: </p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">".имя класса блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+	
+	<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Якщо потрібно, щоб скролл враховував шапку (не докручував на висоту шапки, використовується при фіксованих шапках) потрібно додати до об’єкта навігації атрибут <strong>data-goto-header</strong>:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-header</span> <span class="attribute">data-goto</span>=<span class="value">".имя класса блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Якщо потрібно, щоб скролл не докручував до блоку на вказану висоту, необхідно додати до об’єкта навігації атрибут <strong>data-goto-top</strong>, а в якості значення вказати число – необхідну висоту:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-top</span>=<span class="value">"30"</span> <span class="attribute">data-goto</span>=<span class="value">"#id блока"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
+	
+	
+	
+	<p> <strong>data-goto-top</strong>  можна поєднувати з <strong>data-goto-header</strong>, тоді значення data-goto-top додасться до висоти шапки.</p>
+	
+	
+	
+	<h3 class="wp-block-heading">Додавання класу до поточного пункту навігації</h3>
+	
+	
+	
+	<p>Для включення функціоналу додавання класу підключаємо модуль спостерігача:</p>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>import ‘./libs/watcher.js’</strong><br><strong>[HTML]</strong> Для блоків до яких прокручується сторінка додаємо атрибут <strong>data-watch</strong> зі значенням <strong>navigator</strong>:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto</span>=<span class="value">".some-section"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+	...
+	<span class="tag">&lt;<span class="title">section</span> <span class="attribute">data-watch</span>=<span class="value">"navigator"</span> <span class="attribute">class</span>=<span class="value">"some-section"</span>&gt;</span><span class="tag">&lt;/<span class="title">section</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Після цього, при прокручуванні до хмари (об’єкту) навігації, до відповідного пункту навігації буде додано клас  <strong>_navigator-active</strong></p>
+	
+	
+	
+	<h3 class="wp-block-heading">Прокручування до потрібного блоку по хешу (при відкритті сторінки)</h3>
+	
+	
+	
+	<p>Для того щоб прокрутити сторінку до потрібного блоку при відкритті сторінки необхідно додати до адреси хеш, що містить <strong>ім’я класу потрібного блоку</strong>.</p>
+	
+	
+	
+	<p><em>Приклад адресного рядка та потрібного блоку:</em></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="ruby"><span class="symbol">https:</span>/<span class="regexp">/template.fls.guru/index</span>.html<span class="comment">#some-section</span></code></pre>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"some-section"</span>&gt;</span>
+	...
+	<span class="tag">&lt;/<span class="title">section</span>&gt;</span></code></pre>
+	
+	
+	
+	<h3 class="wp-block-heading">Додавання функціоналу, плавне прокручування на iOS</h3>
+	
+	
+	
+	<p>За промовчанням, прокручування виконується методом scrollTo() з параметром behavior: “smooth” без застосування додаткових плагінів. Але це обмежує функціонал цього модуля – не можна вказати швидкість прокручування, а також можуть виникнути проблеми в <a href="https://caniuse.com/?search=scrollTo" target="_blank" rel="noreferrer noopener">деяких версіях браузерів на iOS</a>. Для вирішення всіх проблем можна підключити додатковий плагін SmoothScroll, зробити це можна у файлі <strong>js/files/scroll/gotoblock.js</strong> розкоментувавши рядок <strong>import SmoothScroll from ‘smooth-scroll’; </strong>подальше перемикання прокручування на плагін відбудеться автоматично.</p>
+	
+	
+	
+	<p>При роботі з плагіном з’являється можливість вказати швидкість прокручування, для цього елементу навігації потрібно додати атрибут <strong>data-goto-speed</strong> і вказати число, що означає кількість мілісекунд за які прокручується (1000 = 1 секунда), за замовчуванням 500.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"#"</span> <span class="attribute">data-goto-speed</span>=<span class="value">"1000"</span> <span class="attribute">data-goto</span>=<span class="value">".some-section"</span> <span class="attribute">class</span>=<span class="value">"link"</span>&gt;</span>Пункт навігаціі<span class="tag">&lt;/<span class="title">a</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Розташування та додаткові дані</h2>
+	
+	
+	
+	<p>Функціонал знаходиться у <strong>js/files/scroll/scroll.js</strong>. Назва функціі <strong>pageNavigation()</strong>. Допоміжний модуль прокручування <strong>gotoblock</strong> знаходиться у <strong>js/files/scroll/gotoblock.js</strong>. Модуль спостерігача знаходиться у файлі <strong>js/libs/watcher.js</strong>. </p>
+	
+	
+	
+	<p>Якщо в момент кліка на пункт навігації було відкрито меню “бургер”, воно закриється автоматично.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/dinamicheskij-adaptiv.html" rel="prev">&lt;- Попередній пост: Модуль “Динамічний адаптив”</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-dobavleniya-klassov-k-shapke-pri-prokrutke-stranicy.html" rel="next">Наступний пост: Модуль додавання класів до шапки під час прокручування сторінки -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

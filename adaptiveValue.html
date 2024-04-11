@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>ADAPTIVE VALUE</title>
+</head>
+
+<body class="post-template-default single single-post postid-979 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-979"> 				<h1 class="article__title title">STYLE.SCSS – налаштування адаптивної сітки, шрифтів, підключення дочірніх файлів</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Файл <strong>scss/style.scss</strong> є основним файлом стилів у <a rel="noreferrer noopener" href="https://www.patreon.com/posts/startovyi-v3-59380989" target="_blank">стартовому шаблоні “Чертоги Фрілансера” v3.0.0</a>. (далі ЧФ). Як правило, стилі проекту тут не пишуть, файл виконує роль материнського файлу куди підключаються окремі файли сторінок, модулів і т.п.</p>
+	
+	
+	
+	<p>Тут же підключаються шрифти та розташовані основні змінні для налаштування сімейства та розміру шрифту за замовчуванням, кольорів, адаптивної сітки, коректної роботи міксинів тощо.</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Налаштування сімейства, розміру та кольору шрифту за замовчуванням</h2>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Для того, щоб працювати зі шрифтами, спочатку потрібно їх підключити. Всі дії докладно описані у <a href="https://template.fls.guru/template-docs/rabota-so-shriftami.html" target="_blank" rel="noreferrer noopener">цій статті.</a></p>
+	</blockquote>
+	
+	
+	
+	<p>Після виконання дій щодо підключення шрифтів необхідно вказати значення для наступних змінних:</p>
+	
+	
+	
+	<p><strong>$fontFamily</strong> – ім’я сімейства шрифт за замовчуванням. Вказуємо ім’я основного шрифту у проекті.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$fontFamily</span>: <span class="string">"Montserrat"</span>;</code></pre>
+	
+	
+	
+	<p><strong>$fontSize</strong> – розмір шрифту за замовчуванням. Цією змінною присвоєно одну із SCSS-функцій шаблону, вона виконує переклад пікселів у REM. Відповідно, у цю функцію слід передати значення розміру шрифту за замовчуванням у пікселях (тільки число без px).</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$fontSize</span>: rem(14);</code></pre>
+	
+	
+	
+	<p><strong>$mainColor</strong> – колір шрифту за замовчуванням. Вказуємо код кольору.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$mainColor</span>: <span class="comment">#000;</span></code></pre>
+	
+	
+	
+	<h2 class="adaptiv wp-block-heading">Налаштування адаптивної сітки</h2>
+	
+	
+	
+	<p>У ЧФ є можливість налаштувати обмежуючий контейнер на роботу як з адаптивною(чуйною) версткою, так і з версткою по брейкпоїнтах. </p>
+	
+	
+	
+	<p>Перед початком робіт налаштовуємо наступні змінні:</p>
+	
+	
+	
+	<p><strong>$minWidth</strong> – мінімальна ширина вьюпорта (екрана), що підтримується проектом. Зазвичай це 320px, але з відмиранням старих пристроїв, це значення можна змінювати на будь-яке потрібне, вказуємо тільки число без px:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$minWidth</span>: 320;</code></pre>
+	
+	
+	
+	<p><strong>$maxWidth</strong> – ширина всього макета (полотна), не плутати з шириною контейнера, що обмежує. Як правило, дизайнери надають макети шириною 1920 чи 1440 пікселів, але це значення може бути будь-яким. Вимірюємо макет і вказуємо лише число без px:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$maxWidth</span>: 1920;</code></pre>
+	
+	
+	
+	<p><strong>$maxWidthContainer</strong> – ширина обмежуючого контейнера. Власне, це ширина контенту в макеті дизайну. Вимірюємо макет і вказуємо лише число без px:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$maxWidthContainer</span>: 1170;</code></pre>
+	
+	
+	
+	<p>Якщо в макеті немає обмеження контенту, тобто контент розташований на всю ширину полотна (з відступами), то слід вказати значення <strong>0</strong> (нуль):</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$maxWidthContainer</span>: 0;</code></pre>
+	
+	
+	
+	<p><strong>$containerPadding</strong> – загальний відступ (сума відступів ліворуч і праворуч) у обмежуючого контейнера. Вказуємо лише число без px:  </p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$containerPadding</span>: 30;</code></pre>
+	
+	
+	
+	<p>Якщо відступів немає, або ви хочете використовувати адаптивну властивість, слід вказати <strong>0</strong> (нуль):</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$containerPadding</span>: 0;</code></pre>
+	
+	
+	
+	<p><strong>$containerWidth</strong> – ширина спрацьовування першого брейкпоїнту. Власне, це сума ширин обмежуючого контейнера та його відступів. Як правило, міняти тут нічого не потрібно.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$containerWidth</span>: <span class="variable">$maxWidthContainer</span> + <span class="variable">$containerPadding</span>;</code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Вищезгадані змінні впливають і на функціонал чуйної властивості, який описаний в окремій статті</p>
+	</blockquote>
+	
+	
+	
+	<h4 class="wp-block-heading">Налаштування брейкпоінтів</h4>
+	
+	
+	
+	<p>Змінним брейпоїнтам присвоєно одну з SCSS-функцій шаблону em(), вона виконує переведення пікселів у EM.</p>
+	
+	
+	
+	<p><strong>$pc</strong> – ПК, ноутбуки, деякі планшети в горизонтальному положенні. Як правило, тут вказується змінна  <strong>$containerWidth</strong>:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$pc</span>: em(<span class="variable">$containerWidth</span>);</code></pre>
+	
+	
+	
+	<p><strong>$tablet</strong> – планшети, деякі телефони у горизонтальному положенні. Зазвичай значення дорівнює 991.98px:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$tablet</span>: em(991.98);</code></pre>
+	
+	
+	
+	<p><strong>$mobile</strong> – великі телефони. Зазвичай значення дорівнює 767.98px: </p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$mobile</span>: em(767.98);</code></pre>
+	
+	
+	
+	<p><strong>$mobileSmall</strong> – маленькі телефони. Зазвичай значення дорівнює 479.98px:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$mobileSmall</span>: em(479.98);</code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Для швидкого виклику медіа-запиту з потрібним брейкпоінтом можна використовувати <a href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank" rel="noreferrer noopener">сніпети</a> md1, md2, md3, md4. Или, для Mobile First, mmd1, mmd2, mmd3, mmd4</p>
+	</blockquote>
+	
+	
+	
+	<h4 class="wp-block-heading">Налаштування типу адаптива (поведінка обмежуючого контейнера)</h4>
+	
+	
+	
+	<p><strong>$responsiveType</strong> – налаштування типу адаптива (поведінка обмежуючого контейнера):</p>
+	
+	
+	
+	<ul>
+	<li><strong>1</strong> – чуйна. У контейнера немає брейкпоінтів, він звужується разом із браузером</li>
+	
+	
+	
+	<li><strong>2</strong> – по брейкпоїтам. Контейнер змінює свою ширину за налаштованими брейкпоїнтами.</li>
+	</ul>
+	
+	
+	
+	<pre class="wp-block-code"><code class="bash"><span class="variable">$responsiveType</span>: 1;</code></pre>
+	
+	
+	
+	<p>Нижче у файлі стилів <strong>scss/style.scss</strong> вказано селектор обмежуючого контейнера та його стилі, значення яких багато в чому складаються з налаштованих вище змінних.</p>
+	
+	
+	
+	<p>Стилі обмежувального контейнера будуть застосовуватися до будь-якого елемента, у класі якого є рядок <strong>“__container”</strong>. Для зручності можна використовувати <a href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank" rel="noreferrer noopener">сніпет</a> <strong>cnt</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"block__container"</span>&gt;</span>
+		...
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення додаткових файлів стилів</h2>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>У файлі <strong>scss/style.scss</strong> вже підключено і можна підключати інші файли стилів. Порядок підключення має значення!</p>
+	</blockquote>
+	
+	
+	
+	<p><strong>@use “sass:math”;</strong> – включає SASS-модуль математичних обчислень. Тепер ми можемо використовувати поділ за допомогою math.div(число, число).</p>
+	
+	
+	
+	<p><strong>@import “base/mixins”;</strong> – підключення міксинів, що використовуються в ЧФ. Файл scss/base/mixins.scss.</p>
+	
+	
+	
+	<p><strong>@import “base/null”;</strong> – підключення обнулення стилів. Файл scss/base/null.scss.</p>
+	
+	
+	
+	<p><strong>@import “base”;</strong> – підключення загального файлу базових стилів модулів ЧФ, SASS-шаблонів (заготовок) та допоміжних класів. Файл scss/base.scss для підключення/вимкнення конкретних стилів дивись scss/base.scss.</p>
+	
+	
+	
+	<p><strong>@import “common”; </strong>– підключення файлу стилів спільних елементів конкретного проекту. Файл scss/common.scss (спочатку порожній).</p>
+	
+	
+	
+	<p><strong>@import “header”;</strong> , <strong>@import “footer”;</strong> – підключення стилів окремих блоків (спочатку scss/header.scss и  scss/footer.scss ). Ви можете доповнювати список підключенням своїх файлів</p>
+	
+	
+	
+	<p><strong>@import “home”;</strong> – підключення стилів окремих сторінок (спочатку scss/home.scss). Ви можете доповнювати список підключенням своїх файлів</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Селектори та стилі</h2>
+	
+	
+	
+	<p>Спочатку у файлі стилів <strong>scss/style.scss</strong> є ряд SCSS-селекторів:</p>
+	
+	
+	
+	<p><strong>body {}</strong> – стилі основного тега &lt;body&gt; частина з яких описана у файлі обнулення scss/base/null.scss. Також додано підготовку для появи у тега &lt;html&gt; двох класів:</p>
+	
+	
+	
+	<ul>
+	<li><strong>lock </strong>– блокування скролу. Для цього вже написано відповідні CSS-стилі</li>
+	
+	
+	
+	<li><strong>loaded</strong> – сайт завантажений. За цим класом ми можемо впливати на &lt;body&gt; для відображення контенту після повного завантаження даних</li>
+	</ul>
+	
+	
+	
+	<p>.<strong>wrapper {}</strong> – обгортка всього контенту на сторінці. Для неї написані стилі притискання підвалу до низу сторінки, важливий параметр overflow: hidden; який не дасть з’явитися горизонтальному скролу сторінки, а також вирішення проблеми для слайдерів усередині дочірніх flex-елементів.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/rabota-s-shablonizatorom-pug.html" rel="prev">&lt;- Попередній пост: Робота з шаблонізатором PUG</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/scss-miksin-otzyvchivoe-svojstvo.html" rel="next">Наступний пост: SCSS-Міксин “Чуйна (адаптивна) властивість” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

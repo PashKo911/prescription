@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>FORMS</title>
+</head>
+
+<body class="post-template-default single single-post postid-1429 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-1429"> 				<h1 class="article__title title">Робота з формами та елементами форм</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>У шаблоні <a rel="noreferrer noopener" href="https://www.patreon.com/posts/startovyi-v3-59380989" target="_blank">“Чертоги Фрілансера” v3.0.0</a> (далі ЧФ) реалізований функціонал, що допомагає вирішувати різні рутинні завдання при роботі з формами.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>У цьому документі описано загальний функціонал роботи з полями, плейсхолдерами, валідацією, варіантами відправлення форм тощо. В окремих розділах буде описано функціонал конкретних елементів форм, таких як:</p>
+	</blockquote>
+	
+	
+	
+	<ul>
+	<li><a href="https://template.fls.guru/template-docs/otpravka-pisma-na-pochtu-phpmailer.html" target="_blank" rel="noreferrer noopener">Надсилання листів на пошту (PHPMailer)</a></li>
+	
+	
+	
+	<li><a href="https://template.fls.guru/template-docs/funkcional-kastomizacii-select.html" target="_blank" rel="noreferrer noopener">Кастомізація елемента SELECT</a></li>
+	
+	
+	
+	<li>Кастомізація (стилізація) елементів CHECKBOX та RADIO</li>
+	
+	
+	
+	<li>Модуль “Маски” для полів вводу</li>
+	
+	
+	
+	<li>Модуль “Зоряний рейтинг”</li>
+	
+	
+	
+	<li><a href="https://template.fls.guru/template-docs/modul-formy-kollichestvo.html" target="_blank" rel="noreferrer noopener">Модуль “Кількість”</a></li>
+	
+	
+	
+	<li>Модуль “Range” (повзунок)</li>
+	</ul>
+	
+	
+	
+	<h2 class="wp-block-heading">Робота з полями форм</h2>
+	
+	
+	
+	<p>Робота з полями форм має на увазі наступний функціонал:</p>
+	
+	
+	
+	<ol>
+	<li>Додавання класів полю та його батькові при фокусі</li>
+	
+	
+	
+	<li>Функціонал “Показати пароль” для полів з типом password</li>
+	
+	
+	
+	<li>Можливість моментальної валідації поля при втраті фокусу</li>
+	</ol>
+	
+	
+	
+	<p>Щоб підключити загальний функціонал до роботи з полями форм необхідно розкоментувати функцію <strong>flsForms.formFieldsInit({…})</strong> у файлі <strong>js/app.js</strong>:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="css"><span class="tag">flsForms</span><span class="class">.formFieldsInit</span>(<span class="rules">{
+		<span class="rule"><span class="attribute">viewPass</span>:<span class="value"> false,
+		autoHeight: false
+	}</span></span></span>);</code></pre>
+	
+	
+	
+	<p>Передавати функції можна за допомогою наступних параметрів:</p>
+	
+	
+	
+	<ul>
+	<li><strong>viewPass</strong> – дозволяє увімкнути функціонал “Показати пароль” . true – увімкнено, false – вимкнено (за замовчуванням).</li>
+	
+	
+	
+	<li><strong>autoHeight</strong> – дозволяє увімкнути функціонал “Автовисота” для текстової області. true – увімкнено, false – вимкнено (за замовчуванням).</li>
+	</ul>
+	
+	
+	
+	<h5 class="wp-block-heading">Робота с атрибутом placeholder</h5>
+	
+	
+	
+	<p>Для того, щоб надпис який є в атрибуті поля форми <strong>placeholder</strong> зникав при фокусі, необхідно додати до поля класс <strong>input</strong> та розкоментувати <strong>@import “input”;</strong> у файлі <strong>scss/base/forms/forms.scss</strong>. Якщо нам потрібно вимкнути приховування для конкретного поля, слід додати атрибут <strong>data-placeholder-nohide</strong></p>
+	
+	
+	
+	<h5 class="wp-block-heading">Додавання класів</h5>
+	
+	
+	
+	<p> За замовчанням, після підключення <strong>flsForms.formFieldsInit({…})</strong>, при виникненні фокусу, до поля і до його безпосереднього батьківського елементу, додасться клас <strong>_form-focus</strong>. Якщо нам потрібно вимкнути додавання класів для конкретного поля, йому слід додати атрибут <strong>data-no-focus-classes</strong></p>
+	
+	
+	
+	<h5 class="wp-block-heading">Валідація поля при втраті фокусу</h5>
+	
+	
+	
+	<p>Для того, щоб скрипт почав викликати <a href="#">функціонал валідації</a> поля в момент втрати ним фокусу, слід додати полю атрибут <strong>data-validate</strong>. </p>
+	
+	
+	
+	<p>Варто додати, що функціонал роботи з полями форм також видалить помилку додану до поля валідатор при отриманні фокусу. Докладніше про функціонал валідації полів дивись далі в цьому документі.</p>
+	
+	
+	
+	<h5 class="wp-block-heading"> Функціонал “Показати пароль”</h5>
+	
+	
+	
+	<p>Функціонал “Показати пароль” дозволяє відображати зашифроване значення поля з типом password при натисканні на об’єкт з класом, що містить рядок “__viewpass”, який знаходиться разом з полем в одному батьку:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"form__line"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">input</span> <span class="attribute">autocomplete</span>=<span class="value">"off"</span> <span class="attribute">type</span>=<span class="value">"password"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span> <span class="attribute">value</span>=<span class="value">"123456"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">button</span> <span class="attribute">class</span>=<span class="value">"form__viewpass"</span> <span class="attribute">type</span>=<span class="value">"button"</span>&gt;</span>Показати пароль<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">type</span>=<span class="value">"submit"</span> <span class="attribute">class</span>=<span class="value">"button"</span>&gt;</span>Надіслати<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>У момент кліка на об’єкт з класом, що містить рядок “__viewpass”, до нього додається клас <strong>_viewpass-active</strong>, а тип поля введення змінюється на text. Повторне натискання виконає зворотні дії.</p>
+	
+	
+	
+	<p>Нагадаю, щоб увімкнути функціонал “Показати пароль” слід вказати<strong> true</strong> для параметра <strong>viewPass </strong>при підключенні функціонала у файлі <strong>js/app.js</strong>.</p>
+	
+	
+	
+	<h5 class="wp-block-heading">Функціонал “Автовисота” для textarea</h5>
+	
+	
+	
+	<p>Функціонал “Автовисота” дозволяє елементу textarea автоматично підлаштовуватися по висоті під текст, що вводиться.</p>
+	
+	
+	
+	<p>Для включення необхідно назвати <strong>true </strong>для параметра <strong>autoHeight</strong>, а також додати атрибут <strong>data-autoheight</strong> елементe(ам) textarea.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">name</span>=<span class="value">"message"</span> <span class="attribute">data-autoheight</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Додатково можна вказати такі параметри:</p>
+	
+	
+	
+	<ul>
+	<li><strong>data-autoheight-min=’число’</strong> – мінімальна (стартова) висота textarea</li>
+	
+	
+	
+	<li><strong>data-autoheight-max=’<strong>число’</strong></strong> – максимальна висота textarea</li>
+	</ul>
+	
+	
+	
+	<h2 class="validate wp-block-heading">Валідація елементів форм</h2>
+	
+	
+	
+	<p>Для включення функціоналу слід розкоментувати функцію <strong>flsForms.formSubmit();</strong> та/або <strong>flsForms.formFieldsInit({…})</strong> у файлі <strong>js/app.js</strong></p>
+	
+	
+	
+	<p>Щоб елемент форми почав проходити валідацію, йому слід додати атрибут <strong>data-required</strong>. Тепер при надсиланні форми, а також якщо елементу доданий атрибут <strong>data-validate</strong>, він перевірятиметься на предмет правильного заповнення.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>При доданому атрибуті <strong>data-validate</strong> валідація буде відбуватись миттєво <br>при втраті полем фокусу</p>
+	</blockquote>
+	
+	
+	
+	<p>Щоб включити особливі правила валідації поля, атрибуту слід додати одне з значень:</p>
+	
+	
+	
+	<ul>
+	<li><strong>email</strong> – увімкне валідацію на введення коретного E-mail</li>
+	
+	
+	
+	<li>йде робота над новими пресетами</li>
+	</ul>
+	
+	
+	
+	<p><em>Приклад:</em></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">data-required</span>=<span class="value">"email"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Якщо елемент заповнений неправильно, до нього, а також до його батька додасться клас <strong>_form-error</strong>. Якщо ми хочемо додатково вивести довільний текст помилки, слід вказати його в атрибуті <strong>data-error</strong> і додати до поля:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">data-error</span>=<span class="value">"Введен не верный E-mail"</span> <span class="attribute">data-required</span>=<span class="value">"email"</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">name</span>=<span class="value">"form[]"</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Тепер, при виникненні помилки валідації, під елементом додасться об’єкт із класом <strong>form__error</strong>, який містить ваш текст помилки.</p>
+	
+	
+	
+	<p>Нагадаю, що функціонал роботи з полями видалить класи помилок та об’єкт із класом <strong>form__error</strong> при отриманні полем фокусу.</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Для відключення валідації елементів конкретної форми їй слід додати атрибут <strong>data-no-validate</strong></p>
+	</blockquote>
+	
+	
+	
+	<h2 class="wp-block-heading">Відправлення форм</h2>
+	
+	
+	
+	<p>Для включення функціоналу слід розкоментувати функцію <strong>flsForms.formSubmit();</strong> у файлі <strong>js/app.js</strong>:</p>
+	
+	
+	
+	<h5 class="wp-block-heading">Валідація елементів форми</h5>
+	
+	
+	
+	<p>За замовчанням, при відправленні форми поля відмічені <strong>data-required/data-required=’…’</strong> будуть проходити валідацію. Для відключення валідації елементів конкретної форми їй слід додати атрибут <strong>data-no-validate</strong></p>
+	
+	
+	
+	<h5 class="wp-block-heading">Режими відправлення форми</h5>
+	
+	
+	
+	<p>У ЧФ існує кілька режимів контролю надсилання форм:</p>
+	
+	
+	
+	<ol>
+	<li><strong>Стандартне HTML відправлення форми</strong> (за замовчуванням) – якщо валідація пройдена (була включена), форма відправиться на вказану в атрибуті action адресу (з переходом сторінки), методом вказаним в атрибуті метод.</li>
+	
+	
+	
+	<li><strong>AJAX відправка форми </strong>– якщо валідацію пройдено (було включено), форма відправиться AJAX запитом на вказану в атрибуті action адресу, методом вказаним в атрибуті method. Сторінка не перезавантажиться, всі елементи форми повернуться до вихідних значень (очищення форми).</li>
+	
+	
+	
+	<li><strong>Режим імітації відправки форми </strong>– якщо валідацію пройдено (було включено), форма нікуди не відправиться, сторінка не перезавантажиться, всі елементи форми повернуться до вихідних значень (очищення форми). Використовується для демонстрації додаткових можливостей форм, таких, як показ попапа про успішну відправку.</li>
+	</ol>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Для включення режиму <strong>AJAX надсилання</strong> достатньо додати формі атрибут <strong>data-ajax</strong>, а якщо потрібний режим<strong> імітації надсилання</strong> додаємо атрибут <strong>data-dev</strong>.</p>
+	</blockquote>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-ajax</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">method</span>=<span class="value">"POST"</span> <span class="attribute">action</span>=<span class="value">"sendmail.php"</span>&gt;</span>
+		...
+	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+	
+	
+	
+	<h5 class="wp-block-heading">Прокручування до елемента з помилкою</h5>
+	
+	
+	
+	<p>Буває, що форма дуже велика і, при виникненні помилки валідації, добре показати елемент з помилкою користувачеві. Для цього є функціонал “прокрутка до елементу з помилкою”. Для включення достатньо додати формі атрибут <strong>data-goto-error</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-goto-error</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+		...
+	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+	
+	
+	
+	<h5 class="wp-block-heading">Показ попапа після надсилання форми</h5>
+	
+	
+	
+	<p>Якщо необхідно, після відправки форми, показати попап додаємо до форми атрибут data-popup-message і як значення вказуємо селектор попапа</p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Тільки для режимів <strong>data-ajax</strong> або <strong>data-dev</strong>. <a href="https://template.fls.guru/template-docs/funkcional-popup.html" target="_blank" rel="noreferrer noopener">Функціонал попапів</a> також має бути підключений</p>
+	</blockquote>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">form</span> <span class="attribute">data-dev</span> <span class="attribute">data-popup-message</span>=<span class="value">"#form-message"</span> <span class="attribute">class</span>=<span class="value">"form"</span> <span class="attribute">action</span>=<span class="value">"#"</span>&gt;</span>
+		...
+	<span class="tag">&lt;/<span class="title">form</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Події</h2>
+	
+	
+	
+	<p>Після кожної відправки форми спрацьовує подію у <strong>formSent</strong>, її можна відловити в будь-якій частині коду:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="javascript">document.addEventListener(<span class="string">"formSent"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+		<span class="comment">// Форма</span>
+		<span class="keyword">const</span> currentForm= e.detail.form;
+	});</code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Розташування та додаткові дані</h2>
+	
+	
+	
+	<p>Функціі <strong>formFieldsInit()</strong>, <strong>formSubmit()</strong> а також об’єкт <strong>formValidate </strong>знаходяться у файлі<strong> js/files/forms/form.js</strong></p>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/rabota-so-slajderom-swiper.html" rel="prev">&lt;- Попередній пост: Модуль слайдеру “Swiper”</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/funkcional-kastomizacii-select.html" rel="next">Наступний пост: Модуль кастомізації елемента SELECT -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

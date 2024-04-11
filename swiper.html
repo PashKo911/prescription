@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>SWIPER</title>
+</head>
+
+<body class="post-template-default single single-post postid-1258 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-1258"> 				<h1 class="article__title title">Модуль слайдеру “Swiper”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>У шаблоні <a rel="noreferrer noopener" href="https://www.patreon.com/posts/startovyi-v3-59380989" target="_blank">“Чертоги Фрілансера” v3.0.0</a>, далі ЧФ, є підготовка до роботи з <a rel="noreferrer noopener" href="https://swiperjs.com/" target="_blank">слайдером Swiper</a>.</p>
+	
+	
+	
+	<p><strong>[HTML]</strong> Існує два сніпети для побудови HTML-структури слайдера:</p>
+	
+	
+	
+	<ol>
+	<li><strong>swiper</strong> – будує мінімальну структуру з уже доданими класами слайдера (для досвідченіших)</li>
+	
+	
+	
+	<li><strong>swiperfull</strong> –  будує повну структуру слайдера з додаванням всіх можливих елементів керування (кнопки “ліворуч/праворуч”, скролл, пагінація (булети)) з уже доданими класами слайдера. Весь код супроводжується коментарями (для новачків).</li>
+	</ol>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>import “./files/sliders.js”;</strong></p>
+	
+	
+	
+	<p>У файлі <strong>js/files/sliders.js</strong> виконується підключення самого слайдера “Swiper” з пакета NPM (підключено за замовчуванням)</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="python"><span class="keyword">import</span> Swiper, { Navigation } <span class="keyword">from</span> <span class="string">'swiper'</span>;</code></pre>
+	
+	
+	
+	<p>При необхідності можна підключити більше потрібних модулів:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="python"><span class="keyword">import</span> Swiper, { Navigation, Pagination, Lazy, Autoplay } <span class="keyword">from</span> <span class="string">'swiper'</span>;</code></pre>
+	
+	
+	
+	<p>Повний перелік модулів – <a rel="noreferrer noopener" href="https://swiperjs.com/swiper-api#using-js-modules" target="_blank">тут</a> </p>
+	
+	
+	
+	<p>Також, нижче за кодом, є приклад-підготовка для створення конкретного слайдера (функція <strong>initSliders();</strong>) Тут ми створюємо та налаштовуємо потрібні нам слайдери, не забуваємо вказувати модулі для конкретного слайдера</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="cs"><span class="keyword">new</span> Swiper(<span class="string">'.swiper'</span>, {
+		modules: [Navigation, Autoplay],
+		...
+	}</code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Інформацію з налаштування дивись у <a href="https://swiperjs.com/swiper-api" data-type="URL" data-id="https://swiperjs.com/swiper-api" target="_blank" rel="noreferrer noopener">документаціі</a> на сайті слайдера.</p>
+	</blockquote>
+	
+	
+	
+	<p>Ініціалізація слайдера(ів)<strong> initSliders();</strong> відбувається після повного завантаження сторінки нижче за кодом:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="javascript">window.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+		<span class="comment">// Запуск ініціалізації слайдерів</span>
+		initSliders();
+	});</code></pre>
+	
+	
+	
+	<p><strong>[SCSS]</strong> За замовчуванням, у файлі<strong> js/files/sliders.js</strong> підключені базові, мінімально необхідні для роботи стилі слайдера<strong> import “../../scss/base/swiper.scss”;</strong> (Для більш досвідчених). Також є можливість підключити (розкоментувавши рядок) повні стилі слайдера із файлу <strong>scss/libs/swiper.scss</strong> або з пакета <strong>import ‘swiper/css’; </strong>(для початківців)</p>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/modul-lenivaya-podgruzka-lazy-loading.html" rel="prev">&lt;- Попередній пост: Модуль “Ліниве підвантаження” (Lazy Loading)</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/rabota-s-formami.html" rel="next">Наступний пост: Робота з формами та елементами форм -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

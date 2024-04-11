@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>CUSTOM SELECT</title>
+</head>
+
+<body class="post-template-default single single-post postid-572 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-572"> 				<h1 class="article__title title">Модуль кастомізації елемента SELECT</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Модуль дозволяє як завгодно стилізувати стандартний елемент форми SELECT та його пункти OPTION, а також реалізує додаткові можливості.</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення модуля</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> У потрібному місці викликати <a rel="noreferrer noopener" href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank">сніпет</a> <strong>sel</strong>, редагувати HTML-код селекту під свої потреби<br><strong>[SCSS]</strong> Розкоментувати рядок <strong>@import “select”;</strong> у файлі <strong>src/scss/base/forms/forms.scss</strong> – це підключить базові стилі селекту, відредагувати під свої потреби<br><strong>[JS]</strong> Розкоментувати рядок <strong>import ‘./libs/select.js’</strong> у файлі <strong>js/app.js</strong></p>
+	
+	
+	
+	<h2 class="wp-block-heading">Налаштування та функціонал модуля</h2>
+	
+	
+	
+	<p>Для підключення того чи іншого функціоналу модуля використовуються різні HTML-атрибути</p>
+	
+	
+	
+	<h3 class="wp-block-heading">Атрибути для тегу &lt;SELECT&gt;:</h3>
+	
+	
+	
+	<ol>
+	<li><strong>multiple</strong> – мультивибір</li>
+	
+	
+	
+	<li><strong>disabled</strong> – недоступний </li>
+	
+	
+	
+	<li><strong>data-class-modif=имя класса</strong> – модифікатор до конкретного селекту. У результаті вийде select select_ім’я класу</li>
+	
+	
+	
+	<li><strong>data-tags</strong> – режим тегів (тільки для multiple) дозволяє вставляти вибрані значення у вигляді тегів з хрестиком для видалення. Також є можливість виводити ці теги в будь-якому зазначеному місці, вказавши селектор блоку як значення атрибуту</li>
+	
+	
+	
+	<li><strong>data-scroll</strong> – включить прокрутку для списку, додатково можна підключити кастомний скролл simplebar в js/app.js. Зазначене число для атрибуту обмежить висоту контейнера випадаючого списку</li>
+	
+	
+	
+	<li><strong>data-checkbox</strong> (в роботі) – стилізація елементів по checkbox (тільки для multiple)</li>
+	
+	
+	
+	<li><strong>data-show-selected</strong> – вимикає приховування вибраного елемента</li>
+	
+	
+	
+	<li><strong>data-search</strong> – дозволяє шукати за списком</li>
+	
+	
+	
+	<li><strong>data-speed</strong> – дозволяє вказати швидкість відкриття/закриття списку в мілісекундах за замовчуванням 150</li>
+	
+	
+	
+	<li><strong>data-open</strong> – селект відкритий відразу</li>
+	
+	
+	
+	<li><strong>data-submit</strong> – відправляє форму при зміні селекту</li>
+	
+	
+	
+	<li><strong>data-pseudo-label=заголовок</strong> – додає псевдоелемент до заголовка селекту із зазначеним текстом, а також клас <strong>_select-pseudo-label</strong></li>
+	</ol>
+	
+	
+	
+	<h3 class="wp-block-heading">Атрибути для тегу &lt;OPTION&gt;:</h3>
+	
+	
+	
+	<ol>
+	<li><strong>data-class=имя класса</strong> – додає клас</li>
+	
+	
+	
+	<li><strong>data-asset=путь к картинке или текст</strong> – додає в елемент списку структуру двох колонок із зазначеними даними</li>
+	
+	
+	
+	<li><strong>data-href=адрес ссылки</strong> – додає посилання до елементу списку</li>
+	
+	
+	
+	<li><strong>data-href-blank</strong> – відкриє посилання у новому вікні</li>
+	</ol>
+	
+	
+	
+	<h5 class="wp-block-heading">Атрибути для плейсхолдера (плейсхолдер – це &lt;OPTION&gt; з порожнім value)</h5>
+	
+	
+	
+	<ol>
+	<li><strong>data-label</strong> – додає label до селекту</li>
+	
+	
+	
+	<li><strong>data-show</strong> – показує плейсхолдер у списку (тільки для одиничного вибору)</li>
+	</ol>
+	
+	
+	
+	<h3 class="wp-block-heading"> Атрибути для інших елементів</h3>
+	
+	
+	
+	<ol>
+	<li><strong>data-one-select</strong> – селекти всередині об’єкта з цим атрибутом будуть відкриватися лише по одному. Тобто при відкритті селекту інший відкритий селект закривається.</li>
+	</ol>
+	
+	
+	
+	<h2 class="wp-block-heading">Пример селекта с некоторыми атрибутами</h2>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">select</span> <span class="attribute">data-submit</span> <span class="attribute">data-scroll</span> <span class="attribute">name</span>=<span class="value">"form[]"</span> <span class="attribute">data-class-modif</span>=<span class="value">"form"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">""</span> <span class="attribute">selected</span>&gt;</span>Плейсхолдер<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"2"</span>&gt;</span>Пункт<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">option</span> <span class="attribute">data-href</span>=<span class="value">"about.html"</span> <span class="attribute">value</span>=<span class="value">"3"</span>&gt;</span>Пункт посилання<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">option</span> <span class="attribute">value</span>=<span class="value">"4"</span>&gt;</span>Пункт<span class="tag">&lt;/<span class="title">option</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">select</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Класи, які формуються модулем</h2>
+	
+	
+	
+	<ol>
+	<li>select – Головний блок</li>
+	
+	
+	
+	<li>select__body – Тіло селекту</li>
+	
+	
+	
+	<li>select__title – Заголовок</li>
+	
+	
+	
+	<li>select__value – Значення у заголовку</li>
+	
+	
+	
+	<li>select__label – Лейбл</li>
+	
+	
+	
+	<li>select__input – Поле вводу</li>
+	
+	
+	
+	<li>select__text – Оболонка текстових даних</li>
+	
+	
+	
+	<li>select__link – Посилання в елементі</li>
+	
+	
+	
+	<li>select__options – Випадаючий список</li>
+	
+	
+	
+	<li>select__scroll – Оболонка при скролі</li>
+	
+	
+	
+	<li>select__option – Пункт</li>
+	
+	
+	
+	<li>select__content – Оболонка контенту в заголовку</li>
+	
+	
+	
+	<li>select__row – Ряд</li>
+	
+	
+	
+	<li>select__asset – Додаткові дані</li>
+	
+	
+	
+	<li>_select-disabled – Заборонено</li>
+	
+	
+	
+	<li>_select-tag – Клас тега</li>
+	
+	
+	
+	<li>_select-open – Список відкритий</li>
+	
+	
+	
+	<li>_select-active – Список обраний</li>
+	
+	
+	
+	<li>_select-focus – Список у фокусі</li>
+	
+	
+	
+	<li>_select-multiple – Мультивибір</li>
+	
+	
+	
+	<li>_select-checkbox – Стиль чекбоксу</li>
+	
+	
+	
+	<li>_select-selected – Вибраний пункт</li>
+	
+	
+	
+	<li>_select-pseudo-label – Псевдолейбл для заголовка селекту</li>
+	</ol>
+	
+	
+	
+	<h2 class="wp-block-heading">Події</h2>
+	
+	
+	
+	<p>Після кожного вибору елементи селекту спрацьовує подію <strong>selectCallback</strong>, її можна відловити в будь-якій частині коду:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="javascript">document.addEventListener(<span class="string">"selectCallback"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
+		<span class="comment">// Селект </span>
+		<span class="keyword">const</span> currentSelect = e.detail.select;
+	});</code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Розташування та додаткові дані</h2>
+	
+	
+	
+	<p>Клас <strong>SelectConstructor </strong>знаходиться у файлі<strong> js/libs/select.js</strong></p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/rabota-s-formami.html" rel="prev">&lt;- Попередній пост: Робота з формами та елементами форм</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-galereya.html" rel="next">Наступний пост: Модуль “Галерея” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

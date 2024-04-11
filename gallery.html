@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>GALLERY</title>
+</head>
+
+<body class="post-template-default single single-post postid-1672 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-1672"> 				<h1 class="article__title title">Модуль “Галерея”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Функціонал підключає галерею (<a rel="noreferrer noopener" href="https://www.lightgalleryjs.com" target="_blank">LightGallery</a>). При натисканні на зображення картинки повне зображення відкривається з можливістю слайд-шоу. Можна створювати як вбудовані, так і лайтбокс-галереї (в правому куті розташовується ряд кнопок (налаштовується) для розширених функцій. Наприклад: “Закрити слайд-шоу”, “Завантаження зображення” та ін. Галерея, підтримує як прості зображення, так і відео чи фрейми.</p>
+	
+	
+	
+	<p>Для роботи галереї необхідні зображення (відеофайли) у двох форматах: мініатюри – зображення невеликого розміру, які використовуються для попереднього перегляду та зображення повного розміру – необхідні для детального перегляду.</p>
+	
+	
+	
+	<h3 class="wp-block-heading" id="подключение-функционала">Підключення функціоналу</h3>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>import “./files/gallery.js”;</strong></p>
+	
+	
+	
+	<h3 class="wp-block-heading" id="использование-функционала">Використання функціоналу</h3>
+	
+	
+	
+	<p><strong>[HTML]</strong> До тегу батька об’єктів галереї, додаємо HTML-атрибут <strong>data-gallery</strong>. </p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-gallery</span> <span class="attribute">class</span>=<span class="value">"gallery"</span>
+	<span class="attribute">....</span>
+	&lt;/<span class="attribute">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Сам об’єкт галереї складаються з такої конструкції (тег для повного розміру зображення і всередині тег для превью). Наприклад, можна використовувати таку розмітку:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-gallery</span> <span class="attribute">class</span>=<span class="value">"gallery"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"img/img-full-1.jpg"</span> <span class="attribute">class</span>=<span class="value">"gallery__image"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">img</span> <span class="attribute">alt</span>=<span class="value">"Превью"</span> <span class="attribute">src</span>=<span class="value">"img/img-thumb-1.jpg"</span> <span class="attribute">class</span>=<span class="value">"gallery__preview"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">a</span> <span class="attribute">href</span>=<span class="value">"img/img-full-2.jpg"</span> <span class="attribute">class</span>=<span class="value">"gallery__image"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">img</span> <span class="attribute">alt</span>=<span class="value">"Превью"</span> <span class="attribute">src</span>=<span class="value">"img/img-thumb-2.jpg"</span> <span class="attribute">class</span>=<span class="value">"gallery__preview"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">a</span>&gt;</span>
+		...
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h3 class="wp-block-heading" id="расположение-и-дополнительные-данные">Розташування та додаткові дані</h3>
+	
+	
+	
+	<p>Функціонал знаходиться у <strong>js/files/gallery.js</strong></p>
+	
+	
+	
+	<p>Детальна документація щодо роботи з самим плагіном на сайті галереї <a rel="noreferrer noopener" href="https://www.lightgalleryjs.com/docs/" target="_blank">https://www.lightgalleryjs.com/docs/</a></p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	
+	
+	
+	<p> </p>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/funkcional-kastomizacii-select.html" rel="prev">&lt;- Попередній пост: Модуль кастомізації елемента SELECT</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-animacii-parallaks-obektov-pri-dvizhenii-myshi.html" rel="next">Наступний пост: Модуль анімації (паралакс) об’єктів під час руху миші -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

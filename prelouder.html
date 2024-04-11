@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>PRELOUDER</title>
+</head>
+
+<body class="post-template-default single single-post postid-2041 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-2041"> 				<h1 class="article__title title">Модуль “Прелоадер”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Модуль відображає процес завантаження сторінки у відсотках та за допомогою прогресбару</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення модуля</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> для усіх HTML-сторінок, де потрібно використовувати прелоадер додаємо підключення файлу <strong>html/_preloader.htm</strong></p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="css"><span class="at_rule">@@<span class="function">include(<span class="string">'html/_preloader.htm'</span>,{})</span></span></code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Зробити це потрібно внизу файлу перед підключенням @@include(‘html/_js.htm’,{}), можна використовувати сніпет <strong>prl</strong></p>
+	</blockquote>
+	
+	
+	
+	<p><strong>[CSS]</strong> для редагування стилів прелоадеру потрібно зайти у файл <strong>html/_preloader.htm</strong>, та редагувати стилі для класів прелоадеру:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">
+		<span class="comment">/* Головний блок */</span>
+		<span class="class">.fls-preloader</span><span class="rules">{
+			<span class="rule"><span class="attribute">pointer-events</span>:<span class="value"> none;</span></span>
+			<span class="rule"><span class="attribute">z-index</span>:<span class="value"> -<span class="number">1</span>;</span></span>
+			<span class="rule"><span class="attribute">position</span>:<span class="value"> fixed;</span></span>
+			<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+			<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100</span>%;</span></span>
+			<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span>;</span></span>
+			<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span>;</span></span>
+			<span class="rule"><span class="attribute">display</span>:<span class="value"> flex;</span></span>
+			<span class="rule"><span class="attribute">justify-content</span>:<span class="value">center;</span></span>
+			<span class="rule"><span class="attribute">align-items</span>:<span class="value"> center;</span></span>
+		<span class="rule">}</span></span>
+		<span class="comment">/* Блок з елементами */</span>
+		<span class="class">.fls-preloader__body</span><span class="rules">{
+			<span class="rule"><span class="attribute">padding</span>:<span class="value"> <span class="number">0.93</span>rem;</span></span>
+			<span class="rule"><span class="attribute">max-width</span>:<span class="value"> <span class="number">31.25</span>rem;</span></span>
+			<span class="rule"><span class="attribute">display</span>:<span class="value"> flex;</span></span>
+			<span class="rule"><span class="attribute">flex-direction</span>:<span class="value"> column;</span></span>
+		<span class="rule">}</span></span>
+		<span class="comment">/* Блок з лічильником */</span>
+		<span class="class">.fls-preloader__counter</span><span class="rules">{
+			<span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">10</span>rem;</span></span>
+		<span class="rule">}</span></span>
+		<span class="comment">/* Прогресбар */</span>
+		<span class="class">.fls-preloader__line</span><span class="rules">{<span class="rule">}</span></span>
+		<span class="comment">/* Лінія прогресбару */</span>
+		<span class="class">.fls-preloader__line</span> <span class="tag">span</span><span class="rules">{
+			<span class="rule"><span class="attribute">display</span>:<span class="value"> inline-block;</span></span>
+			<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0.8</span>rem;</span></span>
+			<span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#7A956B</span>;</span></span>
+		<span class="rule">}</span></span>
+	</span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/paralaks-pri-skroli.html" rel="prev">&lt;- Попередній пост: Паралакс-ефект при скроллі сторінки</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-ripple-effect.html" rel="next">Наступний пост: Модуль “Ripple Effect” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

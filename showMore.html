@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>SHOW MORE</title>
+</head>
+
+<body class="post-template-default single single-post postid-810 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-810"> 				<h1 class="article__title title">Модуль “Показати ще”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Модуль “Показати ще” дозволяє спочатку приховати частину тексту або елементів списку, показуючи тільки вказану висоту або кількість елементів. Є можливість включати функціонал на певній ширині екрану (брейкпоінті).</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення функціоналу</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> У потрібному місці викликати <a rel="noreferrer noopener" href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank">сніпет</a> <strong>showmore</strong> (класи замінити на потрібні). Або вручну створити структуру де для оболонки доданий атрибут <strong>data-showmore</strong>, для дочірнього елемента <strong>data-showmore-content</strong> і кнопки <strong>data-showmore-button</strong>. Кнопку спочатку потрібно приховати додавши атрибут <strong>hidden </strong>і додати два теги &lt;span&gt; з текстом показу та приховування контенту:</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore-content</span> <span class="attribute">class</span>=<span class="value">"block__content"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">hidden</span> <span class="attribute">data-showmore-button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"block__more"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Показати ще<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Приховати<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі <strong>js/app.js</strong> розкоментувати рядок <strong>flsFunctions.showMore();</strong><br><strong>[SCSS]</strong> Розкоментувати рядок <strong>@import “base/showmore”;</strong> у файлі <strong>src/scss/base.scss</strong> — це підключить базові стилі, відредагувати під свої потреби</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Використання функціоналу</h2>
+	
+	
+	
+	<p>До елемента з атрибутом <strong>data-showmore-content</strong> додаємо текст та інший контент, або якщо це список (UL/OL) елементи списку (LI).</p>
+	
+	
+	
+	<p>Залежно від того, який контент використовується (текст або елементи списку), вказуємо значення для атрибута  <strong>data-showmore</strong>:</p>
+	
+	
+	
+	<ul>
+	<li><strong>size</strong> – обмеження по висоті блоку (за замовчуванням)</li>
+	
+	
+	
+	<li><strong>items</strong> – обмеження кількості виведених елементів списку</li>
+	</ul>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore</span>=<span class="value">"items"</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">ul</span> <span class="attribute">data-showmore-content</span> <span class="attribute">class</span>=<span class="value">"block__content"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">li</span>&gt;</span>Пункт №1<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">li</span>&gt;</span>Пункт №2<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">li</span>&gt;</span>Пункт №3<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">li</span>&gt;</span>Пункт №4<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">li</span>&gt;</span>Пункт №5<span class="tag">&lt;/<span class="title">li</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">ul</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">hidden</span> <span class="attribute">data-showmore-button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"block__more"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Показати ще<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Приховати<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Залежно від того, який тип обрано, вказуємо значення для атрибуту <strong> <strong>data-showmore-content</strong> </strong>: </p>
+	
+	
+	
+	<ul>
+	<li><strong>Висота блоку у пікселях</strong> (число без px, за замовчуванням 150)</li>
+	
+	
+	
+	<li><strong>Кількість виведених</strong> <strong>елементів списку </strong>(число, за замовчуванням 3 )</li>
+	</ul>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore-content</span>=<span class="value">"200"</span> <span class="attribute">class</span>=<span class="value">"block__content"</span>&gt;</span>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis explicabo 
+			voluptates magni culpa, perferendis vel quam consequuntur possimus, 
+			vero placeat quo enim obcaecati quas, veritatis magnam non. Architecto, 
+			porro voluptatum?
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">hidden</span> <span class="attribute">data-showmore-button</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"block__more"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Показати ще<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Приховати<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p>Якщо контент буде меншим, ніж зазначене обмеження, кнопка “Показати ще” <strong>не буде показана</strong>. В іншому випадку, контент обмежиться за висотою або за кількістю елементів і при натисканні на кнопку буде показаний повністю, також, до елемента з атрибутом <strong>data-showmore</strong> додасться клас <strong>_showmore-active</strong> (перший спан в кнопці буде прихований, а другий показаний). Повторний клік поверне обмеження.</p>
+	
+	
+	
+	<p>Є можливість керувати швидкістю розгортання контенту, для цього слід вказати значення атрибуту <strong>data-showmore-button</strong> у мілісекундах (за замовчуванням 500):</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore-content</span>=<span class="value">"200"</span> <span class="attribute">class</span>=<span class="value">"block__content"</span>&gt;</span>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis explicabo 
+			voluptates magni culpa, perferendis vel quam consequuntur possimus, 
+			vero placeat quo enim obcaecati quas, veritatis magnam non. Architecto, 
+			porro voluptatum?
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">hidden</span> <span class="attribute">data-showmore-button</span>=<span class="value">"1000"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"block__more"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Показати ще<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Приховати<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h3 class="wp-block-heading">Увімкнення функціоналу на певній ширині екрану</h3>
+	
+	
+	
+	<p>Для того щоб використовувати функціонал на певній ширині екрана, до об’єкта з атрибутом <strong>data-showmore</strong> додаємо атрибут <strong>data-showmore-media</strong> де, через кому, вказуємо потрібну ширину, а також тип:</p>
+	
+	
+	
+	<ul>
+	<li><strong>max</strong> (за замовчуванням) – функціонал увімкнеться на ширині меншій ніж зазначена</li>
+	
+	
+	
+	<li><strong>min</strong> – функціонал увімкнеться на ширині більшій ніж зазначена</li>
+	</ul>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore</span> <span class="attribute">data-showmore-media</span>=<span class="value">"768,min"</span> <span class="attribute">class</span>=<span class="value">"block"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-showmore-content</span>=<span class="value">"200"</span> <span class="attribute">class</span>=<span class="value">"block__content"</span>&gt;</span>
+			Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis explicabo 
+			voluptates magni culpa, perferendis vel quam consequuntur possimus, 
+			vero placeat quo enim obcaecati quas, veritatis magnam non. Architecto, 
+			porro voluptatum?
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">button</span> <span class="attribute">hidden</span> <span class="attribute">data-showmore-button</span>=<span class="value">"1000"</span> <span class="attribute">type</span>=<span class="value">"button"</span> <span class="attribute">class</span>=<span class="value">"block__more"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Показати ще<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">span</span>&gt;</span>Приховати<span class="tag">&lt;/<span class="title">span</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">button</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<h2 class="wp-block-heading">Розташування та додаткові дані</h2>
+	
+	
+	
+	<p>Функціонал знаходиться у <strong>js/files/functions.js</strong>. Назва функціі<strong> showMore()</strong></p>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/modul-nabljudatel-za-poyavleniem-elementa-pri-skrolle.html" rel="prev">&lt;- Попередній пост: Модуль “Спостерігач” за появою елементів під час прокручування сторінки (скролі)</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-taby.html" rel="next">Наступний пост: Модуль “Таби” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>

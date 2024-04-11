@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>BEFORE AFTER</title>
+</head>
+
+<body class="post-template-default single single-post postid-2239 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">	
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989" class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+	<section class="article">
+		<div class="article__container">
+			<div class="article__search search">
+					<div id="block-2" class="widget widget_block widget_search"><form role="search" method="get" action="https://template.fls.guru/" class="wp-block-search__button-outside wp-block-search__text-button wp-block-search"><label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label><div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required="" data-placeholder=""><button aria-label="Пошук" class="wp-block-search__button wp-element-button" type="submit">Пошук</button></div></form></div>
+	<div id="block-3" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-4" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-5" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+	<div id="block-6" class="widget widget_block">
+	<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container"></div></div>
+	</div>
+			</div>
+						<article class="article__item" id="post-2239"> 				<h1 class="article__title title">Модуль “До/Після”</h1>
+					<div class="article__info info">
+						<p class="info__category">Категорії: <a href="https://template.fls.guru/category/template-docs" rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+										</div>
+					<div class="article__body body-article">
+						
+	<p>Модуль “До/Після” – це вивід 2х зображень, з можливістю, перетаскуючи роздиляючу, лінію відобразити одне або друге зображення.</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Підключення</h2>
+	
+	
+	
+	<p><strong>[HTML]</strong> У потрібному місці викликати <a rel="noreferrer noopener" href="https://template.fls.guru/template-docs/install.html#snippets" target="_blank">сніпет</a><strong> ba</strong> (класи можна замінити на потрібні). Або вручну створити структуру із відповідними дата-атрибутами.</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba</span> <span class="attribute">class</span>=<span class="value">"before-after"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-before</span> <span class="attribute">class</span>=<span class="value">"before-after__item"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-after</span> <span class="attribute">class</span>=<span class="value">"before-after__item"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-arrow</span> <span class="attribute">class</span>=<span class="value">"before-after__arrow"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<p><strong>[JS]</strong> У файлі js/app.js розкоментувати рядок <strong>import ‘./libs/beforeafter.js’;</strong> Ця ж дія підключить файл стілів <strong>scss/base/beforeafter.scss</strong> який містить, необхідні для роботи модуля, базові стилі</p>
+	
+	
+	
+	<h2 class="wp-block-heading">Використання</h2>
+	
+	
+	
+	<p>За допомогою тегу IMG додайте забраження у відповідні HTML-елементи, додайте необхідну стилізацію для розділяючої лінії</p>
+	
+	
+	
+	<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba</span> <span class="attribute">class</span>=<span class="value">"before-after"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-before</span> <span class="attribute">class</span>=<span class="value">"before-after__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"@img/before.jpg"</span> <span class="attribute">alt</span>=<span class="value">"Before"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-after</span> <span class="attribute">class</span>=<span class="value">"before-after__item"</span>&gt;</span>
+			<span class="tag">&lt;<span class="title">img</span> <span class="attribute">src</span>=<span class="value">"@img/before.jpg"</span> <span class="attribute">alt</span>=<span class="value">"After"</span>&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">data-ba-arrow</span> <span class="attribute">class</span>=<span class="value">"before-after__arrow"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></code></pre>
+	
+	
+	
+	<pre class="wp-block-code"><code class="css"><span class="class">.before-after__arrow</span><span class="rules">{
+		<span class="rule"><span class="attribute">background-color</span>:<span class="value"> green;</span></span>
+		<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="function">toRem(<span class="number">5</span>)</span>;</span></span>
+	<span class="rule">}</span></span></code></pre>
+	
+	
+	
+	<blockquote class="wp-block-quote">
+	<p>Знаєте як покращити модуль?</p>
+	<cite>Пишіть у <a href="https://template.fls.guru/chat-dlya-patroniv" target="_blank" rel="noreferrer noopener">чаті для патронів</a></cite></blockquote>
+	<div class="patreon-valid-patron-message">Этот контент вам открыт. Спасибо за поддержку канала!</div>				</div>
+				</article>
+					<div class="article__navigator navigator-article">
+				<div class="navigator-article__link navigator-article__link_prev">
+					<a href="https://template.fls.guru/template-docs/vykorystannia-react.html" rel="prev">&lt;- Попередній пост: Використання React</a> 
+				</div>
+				<div class="navigator-article__link navigator-article__link_next">
+					<a href="https://template.fls.guru/template-docs/modul-adaptyvnykh-zobrazhen-ibg.html" rel="next">Наступний пост: Модуль адаптивних зображень “IBG” -&gt;</a> 
+				</div>
+			</div>
+				</div>
+	</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+						</div>
+		</footer>
+	</div>
+	
+	</body>
+
+
+</html>
+
+
+</html>
