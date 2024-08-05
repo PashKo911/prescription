@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>ADAPTIVE VALUE</title>
+</head>
+
+<body class="post-template-default single single-post postid-2349 single-format-standard logged-in">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<nav class="header__menu menu">
+					<div class="menu__body">
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a href="/template-docs" class="menu__link">Документація</a>
+							</li>
+							<li class="menu__item">
+								<a href="/updates" class="menu__link">Оновлення</a>
+							</li>
+						</ul>
+						<ul class="menu__list">
+							<li class="menu__item">
+								<a target="_blank" href="https://www.patreon.com/posts/startovyi-v3-59380989"
+									class="menu__link">Завантажити</a>
+							</li>
+							<li class="menu__item">
+								<a target="_blank" href="https://edu.fls.guru/" class="menu__link">Курси</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
+		<main class="main">
+			<section class="article">
+				<div class="article__container">
+					<div class="article__search search">
+						<div id="block-2" class="widget widget_block widget_search">
+							<form role="search" method="get" action="https://template.fls.guru/"
+								class="wp-block-search__button-outside wp-block-search__text-button wp-block-search">
+								<label class="wp-block-search__label" for="wp-block-search__input-1">Пошук</label>
+								<div class="wp-block-search__inside-wrapper "><input class="wp-block-search__input"
+										id="wp-block-search__input-1" placeholder="" value="" type="search" name="s"
+										required="" data-placeholder=""><button aria-label="Пошук"
+										class="wp-block-search__button wp-element-button" type="submit">Пошук</button>
+								</div>
+							</form>
+						</div>
+						<div id="block-3" class="widget widget_block">
+							<div class="wp-block-group">
+								<div
+									class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+								</div>
+							</div>
+						</div>
+						<div id="block-4" class="widget widget_block">
+							<div class="wp-block-group">
+								<div
+									class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+								</div>
+							</div>
+						</div>
+						<div id="block-5" class="widget widget_block">
+							<div class="wp-block-group">
+								<div
+									class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+								</div>
+							</div>
+						</div>
+						<div id="block-6" class="widget widget_block">
+							<div class="wp-block-group">
+								<div
+									class="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+								</div>
+							</div>
+						</div>
+					</div>
+					<article class="article__item" id="post-2349">
+						<h1 class="article__title title">Конструктивний міксін “Грід-контейнер”</h1>
+						<div class="article__info info">
+							<p class="info__category">Категорії: <a
+									href="https://template.fls.guru/category/template-docs"
+									rel="category tag">Документація «Чертоги Фрілансера» v3.0.0</a></p>
+						</div>
+						<div class="article__body body-article">
+
+							<p>Міксін “Грід-контейнер” дозволяє з легкістю будувати конструкції які передбачають так
+								званий “вихід за обмежуючий контейнер”.</p>
+
+
+
+							<h2 class="wp-block-heading">HTML-конструкція:</h2>
+
+
+
+							<p>Зверніть увагу! Звичного обмежуючого контейнера не має бути.</p>
+
+
+
+							<pre class="wp-block-code"><code class="xml"><span class="tag">&lt;<span class="title">section</span> <span class="attribute">class</span>=<span class="value">"some-section"</span>&gt;</span>
+		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"some-section__some-content"</span>&gt;</span>
+			<span class="comment">&lt;!-- Some content --&gt;</span>
+		<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+	<span class="tag">&lt;/<span class="title">section</span>&gt;</span></code></pre>
+
+
+
+							<h2 class="wp-block-heading">Робота в SCSS:</h2>
+
+
+
+							<p>Сніпет <strong>gc</strong></p>
+
+
+
+							<pre class="wp-block-code"><code class="ruby">.some-section {
+		<span class="variable">@include</span> gridContainer(<span class="constant">N</span>);
+	}</code></pre>
+
+
+
+							<p>Де N тип виводу контента (дивись далі)</p>
+
+
+
+							<p>В результаті роботи міксіну побудується наступний грід-контейнер:</p>
+
+
+
+							<ol class="wp-block-list">
+								<li>Відступ початковий, на основі даних в змінній <strong>$containerPadding</strong>
+								</li>
+
+
+
+								<li>Порожня колонка</li>
+
+
+
+								<li>Основний контент завширшки на основі даних в змінній
+									<strong>$maxWidthContainer</strong>, сюди будуть розвищений HTML-елемент
+									.<strong>some-section__some-content</strong>
+								</li>
+
+
+
+								<li>Порожня колонка</li>
+
+
+
+								<li>Відступ кінцевий, на основі даних в змінній <strong>$containerPadding</strong></li>
+							</ol>
+
+
+
+							<h3 class="wp-block-heading">Параметри міксіну</h3>
+
+
+
+							<p>Параметр N може мати значення:</p>
+
+
+
+							<ul class="wp-block-list">
+								<li><strong>0</strong> – (за замовченням) контент буде розміщений в центрі сітки
+									(звичайна поведінка обмежуючого контейнера)</li>
+
+
+
+								<li><strong>1</strong> – контент буде розміщений на всю ширину в’юпорту</li>
+
+
+
+								<li><strong>2</strong> – контент буде розміщений на всю ширину в’юпорту за виключенням
+									горизонтальних відступів </li>
+
+
+
+								<li><strong>3</strong> – контент буде розміщений так що права сторона буде впритул до
+									края браузера</li>
+
+
+
+								<li><strong>4</strong> – контент буде розміщений так що ліва сторона буде впритул до
+									края браузера</li>
+
+
+
+								<li><strong>5</strong> – контент буде розміщений так що ліва сторона буде впритул до
+									края браузера за виключенням початкового відступу</li>
+
+
+
+								<li><strong>6</strong> – контент буде розміщений так що права сторона буде впритул до
+									края браузера за виключенням кінцевого відступу</li>
+							</ul>
+							<div class="patreon-valid-patron-message">Цей контент відкритий для Вас. Дякую за підтримку!
+							</div>
+						</div>
+					</article>
+					<div class="article__navigator navigator-article">
+						<div class="navigator-article__link navigator-article__link_prev">
+							<a href="https://template.fls.guru/template-docs/robota-z-tailwind.html" rel="prev">&lt;-
+								Попередній пост: Робота з Tailwind</a>
+						</div>
+						<div class="navigator-article__link navigator-article__link_next">
+
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<footer class="footer">
+			<div class="footer__container">
+				<nav class="footer__menu">
+					<ul class="footer__list">
+						<li class="footer__item">
+							<a href="/" class="footer__link">Головна</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
+		<script type="text/javascript"
+			src="https://template.fls.guru/wp-content/plugins/patreon-connect/assets/js/app.js?ver=6.6.1"
+			id="patreon-wordpress-js-js"></script>
+		<script type="text/javascript"
+			src="https://template.fls.guru/wp-content/themes/fls/files/js/highlight.pack.js?ver=6.6.1"
+			id="code-js"></script>
+		<script type="text/javascript" src="https://template.fls.guru/wp-content/themes/fls/js/app.min.js?ver=6.6.1"
+			id="main-js"></script>
+	</div>
+
+</body>
+
+
+</html>
+
+
+</html>
