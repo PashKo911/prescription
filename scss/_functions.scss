@@ -1,4 +1,3 @@
-
 @function percent($num1, $num2) {
 	$rez: math.div($num1, $num2) * 100%;
 	@return $rez;
@@ -9,7 +8,7 @@
 	@return $rez;
 }
 
-@function flBasis($columns: 3, $colGap: 15){
+@function flBasis($columns: 3, $colGap: 15) {
 	$rez: calc((100% - toRem($colGap) * ($columns - 1)) / $columns);
 	@return $rez;
 }
@@ -61,13 +60,13 @@
 	@if ($yIntersection==0) {
 		$yIntersection: 0.000001;
 	}
-	$flyValue: #{toRem($yIntersection)}" + " #{$slope * 100}vw;
+	$flyValue: #{toRem($yIntersection)}' + ' #{$slope * 100}vw;
 
 	// Отримання значення властивості
-	$propertyValue: #{"clamp(" toRem($minSize) "," $flyValue "," toRem($startSize) ")"};
+	$propertyValue: #{'clamp(' toRem($minSize) ',' $flyValue ',' toRem($startSize) ')'};
 	// Якщо негативні значення
 	@if ($minSize > $startSize) {
-		$propertyValue: #{"clamp(" toRem($startSize) "," $flyValue "," toRem($minSize) ")"};
+		$propertyValue: #{'clamp(' toRem($startSize) ',' $flyValue ',' toRem($minSize) ')'};
 	}
 
 	// Встановлюємо значення за замовчуванням
